@@ -1,0 +1,389 @@
+/*** Imports Fonts ***/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+a:hover,
+a::before,
+a::after,
+a:active {
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-weight: 700;
+    font-size: large;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.header, .navbar-top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: white;
+    padding: 1rem;
+    min-height: 100px;
+    background-color: #000000;
+}
+
+.header {
+    position: sticky;
+}
+
+/** Estilo para los botones de inicio y cierre de sesion */
+.iniciar-sesion-btn, #cerrar-sesion-btn {
+    appearance: none;
+    border: none;
+    background: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+.iniciar-sesion-btn:hover, #cerrar-sesion-btn:hover {
+    background-color: white;
+    color: black;
+}
+.hidden {
+    display: none;
+}
+
+/** NavBar Normal **/
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    font-weight: normal;
+}
+
+nav ul li:hover {
+    font-weight: bold;
+}
+
+/** Navbar Hamburugesa **/
+#navbar-hamburguesa .menu, #navbar-hamburguesa .menu.menu-hamburguesa {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+    background-color: #000000;
+}
+
+/** Estilos para controles hamburguesa **/
+#navbar-hamburguesa .controles-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+    display: none;
+    flex-direction: column;
+    margin: 15px;
+}
+#navbar-hamburguesa .boton-hamburguesa .bar, 
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    width: 40px;
+    height: 4px;
+    margin: 4px;
+    border-radius: 1px;
+    background-color: white;
+}
+#navbar-hamburguesa .boton-hamburguesa:hover .bar {
+    background-color: #ccc;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    width: 30px;
+}
+#navbar-hamburguesa .cerrar-hamburguesa {
+    position: absolute;
+    right: 60px;
+    top: 30px;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+    cursor: pointer;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar {
+    position: absolute;
+    transition: transform 0.6s ease-in;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar:nth-child(1){
+    transform: rotate(45deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar .bar:nth-child(2){
+    transform: rotate(-45deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover .bar{
+    background-color: red;
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover  .bar:nth-child(1){
+    transform: rotate(260deg);
+}
+#navbar-hamburguesa .cerrar-hamburguesa .cerrar:hover  .bar:nth-child(2){
+    transform: rotate(15deg);
+}
+
+#navbar-hamburguesa .menu-hamburguesa{
+    display: none;
+}
+
+
+/* ---------- Formulario Inicio Sesion ----------- */
+.cerrar-login-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    transition: transform ease-in 0.5s;
+}
+.cerrar-login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.411);
+    color: #000000;
+    transform: rotate(45deg);
+}
+.login-popup {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.281);
+}
+.login-form {
+    border-radius: 0.6rem;
+    background-color: rgba(255,255,255,0.8);
+    padding: 1.5rem;
+    width: 30rem;
+    height: 22rem;
+    text-align: center;
+}
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+.login-form .opciones-login {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+}  
+button[type="submit"] {
+    background-color: #000000b2;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 590;    
+} 
+button[type="submit"]:hover {
+    background-color: #000000;
+}
+.opciones-login p {
+    cursor: pointer;
+    color:  #000000b2;
+    font-weight: 580;
+}
+.registrarme:hover, .olvido-contrasenia:hover {
+    color: #000000;
+}
+.login-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-iniciar, .login-contrasenia {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*** Main ****/
+#contenedor__principal {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    position: fixed;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.mensaje-bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 100%;
+    min-height: 80vh;
+
+    z-index: 1;
+    cursor: default;
+    overflow: hidden;
+}
+
+.mensaje-bienvenida h1 hr {
+    transition: transform 0.7s ease-in;
+}
+
+.mensaje-bienvenida h1 hr:nth-child(1){
+    transform: translate(-50%);
+    width: 50%;
+}
+.mensaje-bienvenida h1 hr:nth-child(2){
+    transform: translate(150%);
+    width: 50%;
+}
+.mensaje-bienvenida h1:hover{
+    color: rgb(255, 149, 0); ;
+}
+.mensaje-bienvenida h1:hover hr {
+    border-color: rgb(255, 149, 0);
+}
+.mensaje-bienvenida h1:hover hr:nth-child(1){
+    transform: translate(110%);
+}
+.mensaje-bienvenida h1:hover hr:nth-child(2){
+    transform: translate(-10%);
+}
+
+
+
+@media screen and (max-width: 900px) {
+    #navbar-hamburguesa .menu {
+        display: none;
+    }
+
+
+    #navbar-hamburguesa .boton-hamburguesa, #navbar-hamburguesa .cerrar-hamburguesa .cerrar {
+        display: flex;
+    }
+
+    #navbar-hamburguesa .menu.menu-hamburguesa {    
+        position: absolute;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 100vh;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    #navbar-hamburguesa .menu.menu-hamburguesa {    
+        width: 100%;
+    }
+
+    .login-form {
+        width: 20em;
+        height: 20em;
+    }
+
+    .mensaje-bienvenida h1 {
+        font-size: 100%;
+    }
+}
+
+
+

@@ -1,0 +1,52 @@
+.side-bar {
+    max-height: calc(100vh - 8rem) !important;
+}
+
+.card img {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.card {
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+    .side-bar {
+        overflow-x: hidden;
+        flex-grow: 1;
+        min-height: 459px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: 0;
+    }
+
+    .card {
+        justify-content: space-between !important;
+        display: flex;
+    }
+
+    .card img {
+        flex: 10;
+    }
+
+    .card-content {
+        flex: 1;
+    }
+
+}
+
+@media  screen and (width > 767px) and (height < 748px) {
+    .galeria {
+        max-height: calc(100vh - 4%);
+    }
+    .galeria-titulo {
+        display: none;
+    }
+
+}
